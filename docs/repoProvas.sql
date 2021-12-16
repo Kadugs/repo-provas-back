@@ -1,6 +1,5 @@
 CREATE TABLE public.tests (
 	"id" serial NOT NULL,
-	"name" varchar(255) NOT NULL,
 	"link" varchar(765) NOT NULL,
 	"semester_id" integer NOT NULL,
 	"category_id" integer NOT NULL,
@@ -51,6 +50,15 @@ CREATE TABLE public.teachers (
   OIDS=FALSE
 );
 
+CREATE TABLE public.teachers_subjects (
+	"id" serial NOT NULL,
+	"subject_id" integer NOT NULL,
+	"teacher_id" integer NOT NULL,
+	CONSTRAINT "teachers_subjects_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
 
 
 ALTER TABLE "tests" ADD CONSTRAINT "tests_fk0" FOREIGN KEY ("semester_id") REFERENCES "semesters"("id");
@@ -67,3 +75,5 @@ ALTER TABLE "tests" ADD CONSTRAINT "tests_fk3" FOREIGN KEY ("teacher_id") REFERE
 
 
 
+ALTER TABLE "teachers_subjects" ADD CONSTRAINT "teachers_subjects_fk0" FOREIGN KEY ("subject_id") REFERENCES "subjects"("id");
+ALTER TABLE "teachers_subjects" ADD CONSTRAINT "teachers_subjects_fk1" FOREIGN KEY ("teacher_id") REFERENCES "teachers"("id");

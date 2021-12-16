@@ -1,19 +1,10 @@
 /* eslint-disable indent */
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('tests')
-export default class Test {
+@Entity('teachers_subjects')
+export default class TeacherSubjects {
   @PrimaryGeneratedColumn()
   id: number;
-
-  @Column()
-  link: string;
-
-  @Column({ name: 'semester_id' })
-  semesterId: number;
-
-  @Column({ name: 'category_id' })
-  categoryId: number;
 
   @Column({ name: 'subject_id' })
   subjectId: number;

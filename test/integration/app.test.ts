@@ -15,7 +15,6 @@ describe('POST /tests', () => {
   });
   it('should return 201 for valid params', async () => {
     const body = {
-      name: faker.name.findName(),
       link: faker.internet.url(),
       semesterId: 1,
       categoryId: 1,
