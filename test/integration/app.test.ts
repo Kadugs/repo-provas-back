@@ -26,7 +26,12 @@ describe('POST /tests', () => {
     const result = await supertest(app).post('/tests').send(body);
     expect(result.status).toBe(201);
   });
-  afterAll(async () => {});
+});
+describe('GET /infos', () => {
+  it('should return 200 for valid params', async () => {
+    const result = await supertest(app).get('/infos');
+    expect(result.status).toBe(200);
+  });
 });
 
 afterAll(async () => {

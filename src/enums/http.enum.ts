@@ -6,6 +6,7 @@ export enum HttpStatusCode {
   BAD_REQUEST = 400,
   CONFLICT = 403,
   NOT_FOUND = 404,
+  DATABASE_ERROR = 500,
 }
 
 export enum HttpStatusText {
@@ -15,4 +16,5 @@ export enum HttpStatusText {
   BAD_REQUEST = 'Bad Request',
   CONFLICT = 'Conflict',
   NOT_FOUND = 'Not Found',
+  DATABASE_ERROR = 'Database Error',
 }
