@@ -1,16 +1,16 @@
 import { getRepository } from 'typeorm';
-import Semesters from '../entities/Semesters';
-import Subjects from '../entities/Subjects';
-import Teachers from '../entities/Teachers';
-import TestCategories from '../entities/TestCategories';
-import TeacherSubjects from '../entities/TeacherSubjects';
+import SemesterEntity from '../entities/SemesterEntity';
+import SubjectEntity from '../entities/SubjectEntity';
+import TeacherEntity from '../entities/TeacherEntity';
+import TestCategoryEntity from '../entities/TestCategoryEntity';
+import TeacherSubjectsEntity from '../entities/TeacherSubjectsEntity';
 
-async function getInfos() {
-  const semesters = await getRepository(Semesters).find();
-  const subjects = await getRepository(Subjects).find();
-  const teachers = await getRepository(Teachers).find();
-  const testCategories = await getRepository(TestCategories).find();
-  const teacherSubjects = await getRepository(TeacherSubjects).find();
+async function getFormInfos() {
+  const semesters = await getRepository(SemesterEntity).find();
+  const subjects = await getRepository(SubjectEntity).find();
+  const teachers = await getRepository(TeacherEntity).find();
+  const testCategories = await getRepository(TestCategoryEntity).find();
+  const teacherSubjects = await getRepository(TeacherSubjectsEntity).find();
   return {
     semesters,
     subjects,
@@ -20,4 +20,13 @@ async function getInfos() {
   };
 }
 
-export { getInfos };
+async function getTeachersTests() {
+  const tests = await getRepository(TeacherEntity).find({ relations: ['tests'] });
+  const arrTests = tests.map((item) => ({
+    name: item.name,
+    testQuantity: item.tests.length,
+  }));
+  return arrTests;
+}
+
+export { getFormInfos, getTeachersTests };

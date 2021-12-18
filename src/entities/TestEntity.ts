@@ -1,8 +1,9 @@
 /* eslint-disable indent */
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import TeacherEntity from './TeacherEntity';
 
 @Entity('tests')
-export default class Test {
+export default class TestEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -20,4 +21,8 @@ export default class Test {
 
   @Column({ name: 'teacher_id' })
   teacherId: number;
+
+  @ManyToOne(() => TeacherEntity, (teacher) => teacher.tests)
+  @JoinColumn({ name: 'teacher_id' })
+  teacher: TeacherEntity;
 }

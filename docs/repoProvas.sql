@@ -35,6 +35,7 @@ CREATE TABLE public.test_categories (
 CREATE TABLE public.subjects (
 	"id" serial NOT NULL,
 	"subject" varchar(255) NOT NULL,
+	"period_id" integer NOT NULL,
 	CONSTRAINT "subjects_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -59,6 +60,13 @@ CREATE TABLE public.teachers_subjects (
   OIDS=FALSE
 );
 
+CREATE TABLE public.periods (
+	"id" serial NOT NULL,
+	"period" varchar(255) NOT NULL,
+	CONSTRAINT "preiods_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
 
 
 ALTER TABLE "tests" ADD CONSTRAINT "tests_fk0" FOREIGN KEY ("semester_id") REFERENCES "semesters"("id");
@@ -66,14 +74,7 @@ ALTER TABLE "tests" ADD CONSTRAINT "tests_fk1" FOREIGN KEY ("category_id") REFER
 ALTER TABLE "tests" ADD CONSTRAINT "tests_fk2" FOREIGN KEY ("subject_id") REFERENCES "subjects"("id");
 ALTER TABLE "tests" ADD CONSTRAINT "tests_fk3" FOREIGN KEY ("teacher_id") REFERENCES "teachers"("id");
 
-
-
-
-
-
-
-
-
-
 ALTER TABLE "teachers_subjects" ADD CONSTRAINT "teachers_subjects_fk0" FOREIGN KEY ("subject_id") REFERENCES "subjects"("id");
 ALTER TABLE "teachers_subjects" ADD CONSTRAINT "teachers_subjects_fk1" FOREIGN KEY ("teacher_id") REFERENCES "teachers"("id");
+
+ALTER TABLE "subjects" ADD CONSTRAINT "subjects_fk0" FOREIGN KEY ("period_id") REFERENCES "periods"("id");
