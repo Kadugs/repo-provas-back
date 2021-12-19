@@ -34,7 +34,7 @@ async function getTeachersList() {
 
 async function getTeacherTestsById(id: number) {
   const categories = await getRepository(TestCategoryEntity).find({
-    relations: ['tests'],
+    relations: ['tests', 'tests.semester', 'tests.subject'],
   });
   const arrCategories = categories
     .filter((category) => category.tests.length > 0)
@@ -46,6 +46,8 @@ async function getTeacherTestsById(id: number) {
         .map((test) => ({
           id: test.id,
           link: test.link,
+          semester: test.semester.semester,
+          subject: test.subject.subject,
         })),
     }));
   return arrCategories;

@@ -10,6 +10,6 @@ export default class TestCategoryEntity {
   @Column()
   category: string;
 
-  @OneToMany(() => TestEntity, (test) => test.category)
+  @OneToMany(() => TestEntity, (test) => test.category, { eager: true })
   tests: TestEntity[];
 }
