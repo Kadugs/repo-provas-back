@@ -1,5 +1,6 @@
 /* eslint-disable indent */
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import TestEntity from './TestEntity';
 
 @Entity('test_categories')
 export default class TestCategoryEntity {
@@ -8,4 +9,7 @@ export default class TestCategoryEntity {
 
   @Column()
   category: string;
+
+  @OneToMany(() => TestEntity, (test) => test.category)
+  tests: TestEntity[];
 }

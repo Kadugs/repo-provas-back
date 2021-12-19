@@ -20,13 +20,35 @@ async function getFormInfos() {
   };
 }
 
-async function getTeachersTests() {
+async function getTeachersList() {
   const tests = await getRepository(TeacherEntity).find({ relations: ['tests'] });
-  const arrTests = tests.map((item) => ({
-    name: item.name,
-    testQuantity: item.tests.length,
-  }));
+  const arrTests = tests
+    .map((item) => ({
+      id: item.id,
+      name: item.name,
+      testQuantity: item.tests.length,
+    }))
+    .filter((item) => item.testQuantity !== 0);
   return arrTests;
 }
 
-export { getFormInfos, getTeachersTests };
+async function getTeacherTestsById(id: number) {
+  const categories = await getRepository(TestCategoryEntity).find({
+    relations: ['tests'],
+  });
+  const arrCategories = categories
+    .filter((category) => category.tests.length > 0)
+    .map((category) => ({
+      id: category.id,
+      category: category.category,
+      tests: category.tests
+        .filter((test) => test.teacherId === id)
+        .map((test) => ({
+          id: test.id,
+          link: test.link,
+        })),
+    }));
+  return arrCategories;
+}
+
+export { getFormInfos, getTeachersList, getTeacherTestsById };

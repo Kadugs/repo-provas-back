@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import TeacherEntity from './TeacherEntity';
+import TestCategoryEntity from './TestCategoryEntity';
 
 @Entity('tests')
 export default class TestEntity {
@@ -25,4 +26,8 @@ export default class TestEntity {
   @ManyToOne(() => TeacherEntity, (teacher) => teacher.tests)
   @JoinColumn({ name: 'teacher_id' })
   teacher: TeacherEntity;
+
+  @ManyToOne(() => TestCategoryEntity, (teacher) => teacher.tests)
+  @JoinColumn({ name: 'category_id' })
+  category: TestCategoryEntity;
 }
