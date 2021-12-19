@@ -7,8 +7,8 @@ async function getFormInfos(req: Request, res: Response, next: NextFunction) {
   try {
     const infos: object = await infosService.getFormInfos();
     return res.send(infos);
-  } catch (err) {
-    return next(err);
+  } catch (error) {
+    return next(error);
   }
 }
 async function getTeachersList(req: Request, res: Response, next: NextFunction) {
@@ -35,4 +35,37 @@ async function getTeacherTests(req: Request, res: Response, next: NextFunction) 
     return next(error);
   }
 }
-export { getFormInfos, getTeachersList, getTeacherTests };
+
+async function getSubjectsList(req: Request, res: Response, next: NextFunction) {
+  try {
+    const subjectTests = await infosService.getSubjectsList();
+    return res.send(subjectTests);
+  } catch (error) {
+    return next(error);
+  }
+}
+
+async function getSubjectTests(req: Request, res: Response, next: NextFunction) {
+  const { id } = req.params;
+  if (Number(id) < 1) {
+    return res.sendStatus(400);
+  }
+
+  try {
+    const subjectTests = await infosService.getSubjectTestsById(Number(id));
+    return res.send(subjectTests);
+  } catch (error) {
+    if (error instanceof NotFoundError) {
+      return res.sendStatus(404);
+    }
+    return next(error);
+  }
+}
+
+export {
+  getFormInfos,
+  getTeachersList,
+  getTeacherTests,
+  getSubjectsList,
+  getSubjectTests,
+};

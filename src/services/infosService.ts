@@ -4,6 +4,7 @@ import SubjectEntity from '../entities/SubjectEntity';
 import TeacherEntity from '../entities/TeacherEntity';
 import TestCategoryEntity from '../entities/TestCategoryEntity';
 import TeacherSubjectsEntity from '../entities/TeacherSubjectsEntity';
+import PeriodEntity from '../entities/PeriodEntity';
 
 async function getFormInfos() {
   const semesters = await getRepository(SemesterEntity).find();
@@ -53,4 +54,19 @@ async function getTeacherTestsById(id: number) {
   return arrCategories;
 }
 
-export { getFormInfos, getTeachersList, getTeacherTestsById };
+async function getSubjectsList() {
+  const subjects = await getRepository(PeriodEntity).find({
+    relations: ['subjects'],
+  });
+  return subjects;
+}
+async function getSubjectTestsById(id: number) {
+  return `oi ${id}`;
+}
+export {
+  getFormInfos,
+  getTeachersList,
+  getTeacherTestsById,
+  getSubjectsList,
+  getSubjectTestsById,
+};
