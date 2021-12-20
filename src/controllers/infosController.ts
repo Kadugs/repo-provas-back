@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import NotFoundError from '../errors/NotFoundError';
 
 import * as infosService from '../services/infosService';
 
@@ -29,7 +28,7 @@ async function getTeacherTests(req: Request, res: Response, next: NextFunction) 
     const teacherTests = await infosService.getTestsById(Number(id), 'teacher');
     return res.send(teacherTests);
   } catch (error) {
-    if (error instanceof NotFoundError) {
+    if (error.name === 'NotFoundError') {
       return res.sendStatus(404);
     }
     return next(error);
@@ -55,7 +54,7 @@ async function getSubjectTests(req: Request, res: Response, next: NextFunction) 
     const subjectTests = await infosService.getTestsById(Number(id), 'subject');
     return res.send(subjectTests);
   } catch (error) {
-    if (error instanceof NotFoundError) {
+    if (error.name === 'NotFoundError') {
       return res.sendStatus(404);
     }
     return next(error);
