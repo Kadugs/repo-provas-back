@@ -49,7 +49,7 @@ async function getSubjectsList() {
   }));
   return arrSubjects.filter((subject) => subject.subjects.length > 0);
 }
-async function getTestsById(id: number) {
+async function getTestsById(id: number, type: string) {
   const categories = await getRepository(TestCategoryEntity).find({
     relations: ['tests', 'tests.semester', 'tests.subject', 'tests.teacher'],
   });
@@ -59,7 +59,11 @@ async function getTestsById(id: number) {
       id: category.id,
       category: category.category,
       tests: category.tests
-        .filter((test) => test.subjectId === id)
+        .filter(
+          (test) =>
+            (type === 'teacher' && test.teacherId === id) ||
+            (type === 'subject' && test.subjectId === id),
+        )
         .map((test) => ({
           id: test.id,
           link: test.link,
