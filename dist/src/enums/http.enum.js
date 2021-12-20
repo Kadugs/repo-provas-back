@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.HttpStatusText = exports.HttpStatusCode = void 0;
 /* eslint-disable no-unused-vars */ /* eslint-disable no-shadow */
 var HttpStatusCode;

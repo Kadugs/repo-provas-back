@@ -11,25 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /* eslint-disable indent */
-const typeorm_1 = require("typeorm");
-const TestEntity_1 = __importDefault(require("./TestEntity"));
-let TestCategoryEntity = class TestCategoryEntity {
-};
-__decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], TestCategoryEntity.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], TestCategoryEntity.prototype, "category", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => TestEntity_1.default, (test) => test.category, { eager: true }),
-    __metadata("design:type", Array)
-], TestCategoryEntity.prototype, "tests", void 0);
-TestCategoryEntity = __decorate([
-    (0, typeorm_1.Entity)('test_categories')
-], TestCategoryEntity);
-exports.default = TestCategoryEntity;
+var typeorm_1 = require("typeorm");
+var TestEntity_1 = __importDefault(require("./TestEntity"));
+var TestCategoryEntity = /** @class */ (function () {
+    function TestCategoryEntity() {
+    }
+    __decorate([
+        (0, typeorm_1.PrimaryGeneratedColumn)(),
+        __metadata("design:type", Number)
+    ], TestCategoryEntity.prototype, "id");
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", String)
+    ], TestCategoryEntity.prototype, "category");
+    __decorate([
+        (0, typeorm_1.OneToMany)(function () { return TestEntity_1["default"]; }, function (test) { return test.category; }, { eager: true }),
+        __metadata("design:type", Array)
+    ], TestCategoryEntity.prototype, "tests");
+    TestCategoryEntity = __decorate([
+        (0, typeorm_1.Entity)('test_categories')
+    ], TestCategoryEntity);
+    return TestCategoryEntity;
+}());
+exports["default"] = TestCategoryEntity;

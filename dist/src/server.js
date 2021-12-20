@@ -18,13 +18,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 require("./setup");
-const app_1 = __importStar(require("./app"));
-const port = process.env.PORT || 4000;
-(0, app_1.init)().then(() => {
-    app_1.default.listen(port, () => {
+var app_1 = __importStar(require("./app"));
+var port = process.env.PORT || 4000;
+(0, app_1.init)().then(function () {
+    app_1["default"].listen(port, function () {
         // eslint-disable-next-line no-console
-        console.log(`Server is listening on port ${port}`);
+        console.log("Server is listening on port ".concat(port));
     });
 });

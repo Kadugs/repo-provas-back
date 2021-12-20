@@ -11,25 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /* eslint-disable indent */
-const typeorm_1 = require("typeorm");
-const TestEntity_1 = __importDefault(require("./TestEntity"));
-let TeacherEntity = class TeacherEntity {
-};
-__decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], TeacherEntity.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], TeacherEntity.prototype, "name", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => TestEntity_1.default, (test) => test.teacher),
-    __metadata("design:type", Array)
-], TeacherEntity.prototype, "tests", void 0);
-TeacherEntity = __decorate([
-    (0, typeorm_1.Entity)('teachers')
-], TeacherEntity);
-exports.default = TeacherEntity;
+var typeorm_1 = require("typeorm");
+var TestEntity_1 = __importDefault(require("./TestEntity"));
+var TeacherEntity = /** @class */ (function () {
+    function TeacherEntity() {
+    }
+    __decorate([
+        (0, typeorm_1.PrimaryGeneratedColumn)(),
+        __metadata("design:type", Number)
+    ], TeacherEntity.prototype, "id");
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", String)
+    ], TeacherEntity.prototype, "name");
+    __decorate([
+        (0, typeorm_1.OneToMany)(function () { return TestEntity_1["default"]; }, function (test) { return test.teacher; }),
+        __metadata("design:type", Array)
+    ], TeacherEntity.prototype, "tests");
+    TeacherEntity = __decorate([
+        (0, typeorm_1.Entity)('teachers')
+    ], TeacherEntity);
+    return TeacherEntity;
+}());
+exports["default"] = TeacherEntity;

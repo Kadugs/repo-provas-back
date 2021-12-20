@@ -11,25 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /* eslint-disable indent */
-const typeorm_1 = require("typeorm");
-const TestEntity_1 = __importDefault(require("./TestEntity"));
-let SemesterEntity = class SemesterEntity {
-};
-__decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], SemesterEntity.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], SemesterEntity.prototype, "semester", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => TestEntity_1.default, (test) => test.semester),
-    __metadata("design:type", TestEntity_1.default)
-], SemesterEntity.prototype, "test", void 0);
-SemesterEntity = __decorate([
-    (0, typeorm_1.Entity)('semesters')
-], SemesterEntity);
-exports.default = SemesterEntity;
+var typeorm_1 = require("typeorm");
+var TestEntity_1 = __importDefault(require("./TestEntity"));
+var SemesterEntity = /** @class */ (function () {
+    function SemesterEntity() {
+    }
+    __decorate([
+        (0, typeorm_1.PrimaryGeneratedColumn)(),
+        __metadata("design:type", Number)
+    ], SemesterEntity.prototype, "id");
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", String)
+    ], SemesterEntity.prototype, "semester");
+    __decorate([
+        (0, typeorm_1.OneToMany)(function () { return TestEntity_1["default"]; }, function (test) { return test.semester; }),
+        __metadata("design:type", TestEntity_1["default"])
+    ], SemesterEntity.prototype, "test");
+    SemesterEntity = __decorate([
+        (0, typeorm_1.Entity)('semesters')
+    ], SemesterEntity);
+    return SemesterEntity;
+}());
+exports["default"] = SemesterEntity;

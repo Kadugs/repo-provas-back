@@ -18,13 +18,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const infosController = __importStar(require("../controllers/infosController"));
-const router = (0, express_1.Router)();
+exports.__esModule = true;
+var express_1 = require("express");
+var infosController = __importStar(require("../controllers/infosController"));
+var router = (0, express_1.Router)();
 router.get('/infos', infosController.getFormInfos);
 router.get('/infos/tests/teachers', infosController.getTeachersList);
 router.get('/infos/tests/teachers/:id', infosController.getTeacherTests);
 router.get('/infos/tests/subjects', infosController.getSubjectsList);
 router.get('/infos/tests/subjects/:id', infosController.getSubjectTests);
-exports.default = router;
+exports["default"] = router;

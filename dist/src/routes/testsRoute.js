@@ -18,9 +18,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const testsController = __importStar(require("../controllers/testsController"));
-const router = (0, express_1.Router)();
+exports.__esModule = true;
+var express_1 = require("express");
+var testsController = __importStar(require("../controllers/testsController"));
+var router = (0, express_1.Router)();
 router.post('/tests', testsController.addTest);
-exports.default = router;
+exports["default"] = router;

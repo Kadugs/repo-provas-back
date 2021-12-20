@@ -11,25 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /* eslint-disable indent */
-const typeorm_1 = require("typeorm");
-const SubjectEntity_1 = __importDefault(require("./SubjectEntity"));
-let PeriodEntity = class PeriodEntity {
-};
-__decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], PeriodEntity.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], PeriodEntity.prototype, "period", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => SubjectEntity_1.default, (subject) => subject.period),
-    __metadata("design:type", Array)
-], PeriodEntity.prototype, "subjects", void 0);
-PeriodEntity = __decorate([
-    (0, typeorm_1.Entity)('periods')
-], PeriodEntity);
-exports.default = PeriodEntity;
+var typeorm_1 = require("typeorm");
+var SubjectEntity_1 = __importDefault(require("./SubjectEntity"));
+var PeriodEntity = /** @class */ (function () {
+    function PeriodEntity() {
+    }
+    __decorate([
+        (0, typeorm_1.PrimaryGeneratedColumn)(),
+        __metadata("design:type", Number)
+    ], PeriodEntity.prototype, "id");
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", String)
+    ], PeriodEntity.prototype, "period");
+    __decorate([
+        (0, typeorm_1.OneToMany)(function () { return SubjectEntity_1["default"]; }, function (subject) { return subject.period; }),
+        __metadata("design:type", Array)
+    ], PeriodEntity.prototype, "subjects");
+    PeriodEntity = __decorate([
+        (0, typeorm_1.Entity)('periods')
+    ], PeriodEntity);
+    return PeriodEntity;
+}());
+exports["default"] = PeriodEntity;

@@ -11,60 +11,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /* eslint-disable indent */
-const typeorm_1 = require("typeorm");
-const SemesterEntity_1 = __importDefault(require("./SemesterEntity"));
-const SubjectEntity_1 = __importDefault(require("./SubjectEntity"));
-const TeacherEntity_1 = __importDefault(require("./TeacherEntity"));
-const TestCategoryEntity_1 = __importDefault(require("./TestCategoryEntity"));
-let TestEntity = class TestEntity {
-};
-__decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], TestEntity.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], TestEntity.prototype, "link", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ name: 'semester_id' }),
-    __metadata("design:type", Number)
-], TestEntity.prototype, "semesterId", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ name: 'category_id' }),
-    __metadata("design:type", Number)
-], TestEntity.prototype, "categoryId", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ name: 'subject_id' }),
-    __metadata("design:type", Number)
-], TestEntity.prototype, "subjectId", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ name: 'teacher_id' }),
-    __metadata("design:type", Number)
-], TestEntity.prototype, "teacherId", void 0);
-__decorate([
-    (0, typeorm_1.ManyToOne)(() => TeacherEntity_1.default, (teacher) => teacher.tests),
-    (0, typeorm_1.JoinColumn)({ name: 'teacher_id' }),
-    __metadata("design:type", TeacherEntity_1.default)
-], TestEntity.prototype, "teacher", void 0);
-__decorate([
-    (0, typeorm_1.ManyToOne)(() => TestCategoryEntity_1.default, (teacher) => teacher.tests),
-    (0, typeorm_1.JoinColumn)({ name: 'category_id' }),
-    __metadata("design:type", TestCategoryEntity_1.default)
-], TestEntity.prototype, "category", void 0);
-__decorate([
-    (0, typeorm_1.ManyToOne)(() => SemesterEntity_1.default, (semester) => semester.test),
-    (0, typeorm_1.JoinColumn)({ name: 'semester_id' }),
-    __metadata("design:type", SemesterEntity_1.default)
-], TestEntity.prototype, "semester", void 0);
-__decorate([
-    (0, typeorm_1.ManyToOne)(() => SubjectEntity_1.default, (subject) => subject.test),
-    (0, typeorm_1.JoinColumn)({ name: 'subject_id' }),
-    __metadata("design:type", SubjectEntity_1.default)
-], TestEntity.prototype, "subject", void 0);
-TestEntity = __decorate([
-    (0, typeorm_1.Entity)('tests')
-], TestEntity);
-exports.default = TestEntity;
+var typeorm_1 = require("typeorm");
+var SemesterEntity_1 = __importDefault(require("./SemesterEntity"));
+var SubjectEntity_1 = __importDefault(require("./SubjectEntity"));
+var TeacherEntity_1 = __importDefault(require("./TeacherEntity"));
+var TestCategoryEntity_1 = __importDefault(require("./TestCategoryEntity"));
+var TestEntity = /** @class */ (function () {
+    function TestEntity() {
+    }
+    __decorate([
+        (0, typeorm_1.PrimaryGeneratedColumn)(),
+        __metadata("design:type", Number)
+    ], TestEntity.prototype, "id");
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", String)
+    ], TestEntity.prototype, "link");
+    __decorate([
+        (0, typeorm_1.Column)({ name: 'semester_id' }),
+        __metadata("design:type", Number)
+    ], TestEntity.prototype, "semesterId");
+    __decorate([
+        (0, typeorm_1.Column)({ name: 'category_id' }),
+        __metadata("design:type", Number)
+    ], TestEntity.prototype, "categoryId");
+    __decorate([
+        (0, typeorm_1.Column)({ name: 'subject_id' }),
+        __metadata("design:type", Number)
+    ], TestEntity.prototype, "subjectId");
+    __decorate([
+        (0, typeorm_1.Column)({ name: 'teacher_id' }),
+        __metadata("design:type", Number)
+    ], TestEntity.prototype, "teacherId");
+    __decorate([
+        (0, typeorm_1.ManyToOne)(function () { return TeacherEntity_1["default"]; }, function (teacher) { return teacher.tests; }),
+        (0, typeorm_1.JoinColumn)({ name: 'teacher_id' }),
+        __metadata("design:type", TeacherEntity_1["default"])
+    ], TestEntity.prototype, "teacher");
+    __decorate([
+        (0, typeorm_1.ManyToOne)(function () { return TestCategoryEntity_1["default"]; }, function (teacher) { return teacher.tests; }),
+        (0, typeorm_1.JoinColumn)({ name: 'category_id' }),
+        __metadata("design:type", TestCategoryEntity_1["default"])
+    ], TestEntity.prototype, "category");
+    __decorate([
+        (0, typeorm_1.ManyToOne)(function () { return SemesterEntity_1["default"]; }, function (semester) { return semester.test; }),
+        (0, typeorm_1.JoinColumn)({ name: 'semester_id' }),
+        __metadata("design:type", SemesterEntity_1["default"])
+    ], TestEntity.prototype, "semester");
+    __decorate([
+        (0, typeorm_1.ManyToOne)(function () { return SubjectEntity_1["default"]; }, function (subject) { return subject.test; }),
+        (0, typeorm_1.JoinColumn)({ name: 'subject_id' }),
+        __metadata("design:type", SubjectEntity_1["default"])
+    ], TestEntity.prototype, "subject");
+    TestEntity = __decorate([
+        (0, typeorm_1.Entity)('tests')
+    ], TestEntity);
+    return TestEntity;
+}());
+exports["default"] = TestEntity;

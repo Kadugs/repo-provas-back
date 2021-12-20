@@ -11,35 +11,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /* eslint-disable indent */
-const typeorm_1 = require("typeorm");
-const PeriodEntity_1 = __importDefault(require("./PeriodEntity"));
-const TestEntity_1 = __importDefault(require("./TestEntity"));
-let SubjectEntity = class SubjectEntity {
-};
-__decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], SubjectEntity.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], SubjectEntity.prototype, "subject", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => TestEntity_1.default, (test) => test.subject),
-    __metadata("design:type", TestEntity_1.default)
-], SubjectEntity.prototype, "test", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => TestEntity_1.default, (test) => test.subject),
-    __metadata("design:type", Array)
-], SubjectEntity.prototype, "tests", void 0);
-__decorate([
-    (0, typeorm_1.ManyToOne)(() => PeriodEntity_1.default, (period) => period.subjects),
-    (0, typeorm_1.JoinColumn)({ name: 'period_id' }),
-    __metadata("design:type", PeriodEntity_1.default)
-], SubjectEntity.prototype, "period", void 0);
-SubjectEntity = __decorate([
-    (0, typeorm_1.Entity)('subjects')
-], SubjectEntity);
-exports.default = SubjectEntity;
+var typeorm_1 = require("typeorm");
+var PeriodEntity_1 = __importDefault(require("./PeriodEntity"));
+var TestEntity_1 = __importDefault(require("./TestEntity"));
+var SubjectEntity = /** @class */ (function () {
+    function SubjectEntity() {
+    }
+    __decorate([
+        (0, typeorm_1.PrimaryGeneratedColumn)(),
+        __metadata("design:type", Number)
+    ], SubjectEntity.prototype, "id");
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", String)
+    ], SubjectEntity.prototype, "subject");
+    __decorate([
+        (0, typeorm_1.OneToMany)(function () { return TestEntity_1["default"]; }, function (test) { return test.subject; }),
+        __metadata("design:type", TestEntity_1["default"])
+    ], SubjectEntity.prototype, "test");
+    __decorate([
+        (0, typeorm_1.OneToMany)(function () { return TestEntity_1["default"]; }, function (test) { return test.subject; }),
+        __metadata("design:type", Array)
+    ], SubjectEntity.prototype, "tests");
+    __decorate([
+        (0, typeorm_1.ManyToOne)(function () { return PeriodEntity_1["default"]; }, function (period) { return period.subjects; }),
+        (0, typeorm_1.JoinColumn)({ name: 'period_id' }),
+        __metadata("design:type", PeriodEntity_1["default"])
+    ], SubjectEntity.prototype, "period");
+    SubjectEntity = __decorate([
+        (0, typeorm_1.Entity)('subjects')
+    ], SubjectEntity);
+    return SubjectEntity;
+}());
+exports["default"] = SubjectEntity;

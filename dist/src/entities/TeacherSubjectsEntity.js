@@ -8,24 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /* eslint-disable indent */
-const typeorm_1 = require("typeorm");
-let TeacherSubjectsEntity = class TeacherSubjectsEntity {
-};
-__decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], TeacherSubjectsEntity.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ name: 'teacher_id' }),
-    __metadata("design:type", Number)
-], TeacherSubjectsEntity.prototype, "teacherId", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ name: 'subject_id' }),
-    __metadata("design:type", Number)
-], TeacherSubjectsEntity.prototype, "subjectId", void 0);
-TeacherSubjectsEntity = __decorate([
-    (0, typeorm_1.Entity)('teachers_subjects')
-], TeacherSubjectsEntity);
-exports.default = TeacherSubjectsEntity;
+var typeorm_1 = require("typeorm");
+var TeacherSubjectsEntity = /** @class */ (function () {
+    function TeacherSubjectsEntity() {
+    }
+    __decorate([
+        (0, typeorm_1.PrimaryGeneratedColumn)(),
+        __metadata("design:type", Number)
+    ], TeacherSubjectsEntity.prototype, "id");
+    __decorate([
+        (0, typeorm_1.Column)({ name: 'teacher_id' }),
+        __metadata("design:type", Number)
+    ], TeacherSubjectsEntity.prototype, "teacherId");
+    __decorate([
+        (0, typeorm_1.Column)({ name: 'subject_id' }),
+        __metadata("design:type", Number)
+    ], TeacherSubjectsEntity.prototype, "subjectId");
+    TeacherSubjectsEntity = __decorate([
+        (0, typeorm_1.Entity)('teachers_subjects')
+    ], TeacherSubjectsEntity);
+    return TeacherSubjectsEntity;
+}());
+exports["default"] = TeacherSubjectsEntity;
