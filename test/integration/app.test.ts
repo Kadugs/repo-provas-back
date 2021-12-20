@@ -32,6 +32,38 @@ describe('GET /infos', () => {
     expect(result.status).toBe(200);
   });
 });
+describe('GET /infos/tests/teachers', () => {
+  it('should return 200', async () => {
+    const result = await supertest(app).get('/infos/tests/teachers');
+    expect(result.status).toBe(200);
+  });
+});
+describe('GET /infos/tests/teachers/:id', () => {
+  it('should return 400', async () => {
+    const result = await supertest(app).get('/infos/tests/teachers/0');
+    expect(result.status).toBe(400);
+  });
+  it('should return 200', async () => {
+    const result = await supertest(app).get('/infos/tests/teachers/1');
+    expect(result.status).toBe(200);
+  });
+});
+describe('GET /infos/tests/subjects', () => {
+  it('should return 200', async () => {
+    const result = await supertest(app).get('/infos/tests/subjects');
+    expect(result.status).toBe(200);
+  });
+});
+describe('GET /infos/tests/subjects/:id', () => {
+  it('should return 400', async () => {
+    const result = await supertest(app).get('/infos/tests/subjects/0');
+    expect(result.status).toBe(400);
+  });
+  it('should return 200', async () => {
+    const result = await supertest(app).get('/infos/tests/subjects/1');
+    expect(result.status).toBe(200);
+  });
+});
 
 afterAll(async () => {
   await getConnection().close();
