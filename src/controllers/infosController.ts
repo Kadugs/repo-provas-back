@@ -26,7 +26,7 @@ async function getTeacherTests(req: Request, res: Response, next: NextFunction) 
   }
 
   try {
-    const teacherTests = await infosService.getTeacherTestsById(Number(id));
+    const teacherTests = await infosService.getTestsById(Number(id));
     return res.send(teacherTests);
   } catch (error) {
     if (error instanceof NotFoundError) {
@@ -52,7 +52,7 @@ async function getSubjectTests(req: Request, res: Response, next: NextFunction) 
   }
 
   try {
-    const subjectTests = await infosService.getSubjectTestsById(Number(id));
+    const subjectTests = await infosService.getTestsById(Number(id));
     return res.send(subjectTests);
   } catch (error) {
     if (error instanceof NotFoundError) {
