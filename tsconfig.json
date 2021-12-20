@@ -2,9 +2,6 @@
   "compilerOptions": {
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "module": "commonjs",
-    "target": "ES6",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
