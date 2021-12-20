@@ -61,6 +61,7 @@ async function getTestsById(id: number, type: string) {
       tests: category.tests
         .filter(
           (test) =>
+            // eslint-disable-next-line implicit-arrow-linebreak
             (type === 'teacher' && test.teacherId === id) ||
             (type === 'subject' && test.subjectId === id),
         )
