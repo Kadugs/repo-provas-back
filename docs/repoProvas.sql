@@ -81,28 +81,28 @@ ALTER TABLE "subjects" ADD CONSTRAINT "subjects_fk0" FOREIGN KEY ("period_id") R
 
 
 COPY public.periods (id, period) FROM stdin;
-1	1o   \n
-2	2o  \n
-3	3o  \n
-4	4o  \n
-5	5o  \n
-6	6o  \n
-7	7o  \n
-8	8o  \n
-9	9o  \n
-10	eletivas  \n
-11	optativas  \n
+1	1o  
+2	2o  
+3	3o  
+4	4o  
+5	5o  
+6	6o  
+7	7o  
+8	8o  
+9	9o  
+10	eletivas  
+11	optativas  
 \.
 
 COPY public.semesters (id, semester) FROM stdin;
-1	2020.1  \n 
-2	2020.2  \n
-3	2021.1  \n
-4	2021.2  \n
-5	2022.1  \n
-6	2022.2  \n
-7	2023.1  \n
-8	2023.2  \n
+1	2020.1   
+2	2020.2  
+3	2021.1  
+4	2021.2  
+5	2022.1  
+6	2022.2  
+7	2023.1  
+8	2023.2  
 \.
 
 
@@ -126,30 +126,30 @@ COPY public.subjects (id, subject, period_id) FROM stdin;
 
 
 COPY public.teachers (id, name) FROM stdin;
-1	lele  \n
-2	bruninha  \n
-3	sidim  \n
-4	tia nivea  \n
-5	girafales  \n
+1	lele  
+2	bruninha  
+3	sidim  
+4	tia nivea  
+5	girafales  
 \.
 
 
 COPY public.teachers_subjects (id, subject_id, teacher_id) FROM stdin;
-1	1	1   \n
-2	2	1   \n
-3	3	1   \n
-4	4	1   \n
-5	5	2   \n
-6	6	2   \n
-7	7	2   \n
-8	8	2   \n
-9	9	3   \n
-10	10	3   \n
-11	11	4   \n
-12	12	4   \n
-13	13	5   \n
-14	14	5   \n
-15	15	5   \n
+1	1	1   
+2	2	1   
+3	3	1   
+4	4	1   
+5	5	2   
+6	6	2   
+7	7	2   
+8	8	2   
+9	9	3   
+10	10	3   
+11	11	4   
+12	12	4   
+13	13	5   
+14	14	5   
+15	15	5   
 \.
 
 
@@ -163,13 +163,11 @@ COPY public.test_categories (id, category) FROM stdin;
 
 
 COPY public.tests (id, link, semester_id, category_id, subject_id, teacher_id) FROM stdin;
-1	https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD1.pdf	1	1	1	1  \n
-2	https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD1.pdf	2	2	2	1  \n
-3	https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD1.pdf	7	3	1	1  \n
-4	google.com	1	1	5	2  \n
-5	https://download.inep.gov.br/educacao_basica/enem/provas/2012/caderno_enem2012_sab_azul.pdf	1	3	11	4  \n
-6	https://download.inep.gov.br/educacao_basica/enem/provas/2012/caderno_enem2012_sab_azul.pdf	1	3	10	3  \n
-7	https://www.notion.so/	2	4	11	4  \n
-8	https://www.notion.so/Materiais-6f79ad83649b48d5b0ded8fb1a389df8	3	2	12	4  \n
+1	https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD1.pdf	1	1	1	1   \n
+2	https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD1.pdf	2	2	2	1   \n
+3	https://download.inep.gov.br/enem/provas_e_gabaritos/2021_PV_impresso_D1_CD1.pdf	7	3	1	1   \n
+4	google.com	1	1	5	2   \n
+5	https://download.inep.gov.br/educacao_basica/enem/provas/2012/caderno_enem2012_sab_azul.pdf	1	3	11	4   \n
+6	https://download.inep.gov.br/educacao_basica/enem/provas/2012/caderno_enem2012_sab_azul.pdf	1	3	10	3   \n
 \.
 
